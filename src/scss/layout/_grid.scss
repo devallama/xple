@@ -1,0 +1,115 @@
+$grid-columns: 12;
+
+/* Grid settings for defined breakpoints */
+$grid-settings: (
+    small: (
+        offset: 0.75rem,
+        gutter: 0.625rem
+    ),
+    medium: (
+        offset: 1rem,
+        gutter: 1rem
+    ),
+    large: (
+        offset: 8.75rem,
+        gutter: 1rem,
+        max-width: 110rem
+    ),
+    xxlarge: (
+        offset: 8.75rem,
+        gutter: 1rem,
+        max-width: 110rem
+    )
+);
+
+/* Generate the column styling */
+@mixin grid-create-columns-styling($gutter, $columnWidth, $breakpoint: 'column') {
+    &.column,
+    &.columns,
+    .column,
+    .columns {
+        padding: 0 #{$gutter / 2};
+
+        @for $index from 1 through $grid-columns {
+            &.#{$breakpoint}-#{$index} {
+                width: calc(#{$columnWidth} * #{$index});
+            }
+        }
+
+        &.#{$breakpoint}-center,
+        .#{$breakpoint}-center {
+            margin-left: auto !important;
+            margin-right: auto !important;
+            float: none !important;
+        }
+    }
+
+    @for $index from 0 through $grid-columns {
+        &.offset-#{$breakpoint}-#{$index},
+        .offset-#{$breakpoint}-#{$index} {
+            margin-left: calc(#{$columnWidth} * #{$index}) !important;
+        }
+    }
+}
+
+.row {
+    overflow: auto;
+    box-sizing: border-box;
+    clear: both;
+
+    // Width of column
+    $columnWidth: unquote("(100% / #{$grid-columns})");
+
+    &.column,
+    &.columns,
+    .column,
+    .columns {
+        position: relative;
+        width: calc(100%);
+        float: left;
+        box-sizing: border-box;
+    }
+
+    /* Generate breakpoints */
+    @each $breakpoint in $breakpoint-classes {
+        @include breakpoint($breakpoint) {
+            $grid-map: map-get($grid-settings, $breakpoint);
+
+            @if (map-has-key($grid-map, max-width)) {
+                max-width: map-get($grid-map, max-width) - (map-get($grid-map, offset) * 2);
+                margin-left: auto;
+                margin-right: auto;
+            } @else {
+                max-width: calc(100% - #{map-get($grid-map, offset) * 2});
+                margin-left: map-get($grid-map, offset);
+                margin-right: map-get($grid-map, offset);
+            }
+
+            $gutter: map-get($grid-map, gutter);
+
+            @if ($breakpoint==base) {
+                @include grid-create-columns-styling($gutter, $columnWidth);
+            }
+
+            @else {
+                @include grid-create-columns-styling($gutter, $columnWidth, $breakpoint);
+            }
+        }
+    }
+
+    & .row {
+        padding: 0;
+    }
+
+    &.column,
+    &.columns {
+        float: none;
+    }
+
+    & .row.column,
+    & .row.columns {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: none;
+    }
+}
