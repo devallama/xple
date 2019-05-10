@@ -1,0 +1,7 @@
+body {
+    @include breakpoint(medium) {
+        border-left: 6px solid #3F4A59;
+        box-sizing: border-box;
+        min-height: 100vh;
+    }
+}
