@@ -1,0 +1,117 @@
+.landing {
+    position: relative;
+    overflow: hidden;
+
+    .row, .column {
+        overflow: visible;
+    }
+
+    @include breakpoint(medium) {
+        height: auto;
+    }
+
+    &:before {
+        $size: 60vh;
+        content: '';
+        background: transparent url(/media/images/backgrounds/landing-image.png) no-repeat;
+        background-size: 100%;
+        position: absolute;
+        width: $size;
+        height: $size;
+        top: 0;
+        left: 0;
+        margin-top: 18rem;
+        margin-left: 2rem;
+        z-index: 0;
+
+        @include breakpoint(medium) {
+            $size: 52vw;
+            width: $size;
+            height: $size;
+            left: auto;
+            right: 0;
+            margin-top: 5rem;
+            margin-right: 3rem;
+            z-index: 0;
+        }
+    }
+
+    &:after {
+        $size: 18rem;
+        content: '';
+        background: transparent url(/media/images/backgrounds/landing-pattern.png) no-repeat;
+        background-size: 100%;
+        position: absolute;
+        width: $size;
+        height: $size;
+        top: 0;
+        right: 0;
+        margin-top: -10rem;
+        margin-right: -10rem;
+        z-index: -1;
+        transform: rotate(180deg);
+
+        @include breakpoint(medium) {
+            $size: 20vw;
+            width: $size;
+            height: $size;
+            margin-top: -3rem;
+            margin-right: -3rem;
+            transform: none;
+            z-index: 1;
+        }
+    }
+}
+
+.landing--no-bg-mobile:before {
+    @include breakpoint(medium down) {
+        content: none;
+    }
+}
+
+.landing-logo {
+    display: none;
+
+    @include breakpoint(medium) {
+        display: inline-block;
+        height: 5.875rem;
+        margin-top: 1.75rem;
+    }
+}
+
+.landing-main {
+    margin-top: 1.625rem;
+    position: relative;
+    z-index: 2;
+    padding-bottom: 2rem;
+    overflow-y: visible;
+
+    @include breakpoint(medium) {
+        margin-top: 5.25rem;
+        height: auto;
+        padding-bottom: 5rem;
+    }
+}
+
+.landing-auth-btns {
+    position: absolute;
+    top: calc(100vh - 18.25rem);
+    text-align: center;
+    width: 100%;
+
+    @include breakpoint(medium) {
+        text-align: left;
+    }
+
+    @include breakpoint(large) {
+        position: static;
+    }
+
+    .btn:nth-child(1) {
+        margin-right: 0.325rem;
+        
+        @include breakpoint(medium) {
+            margin-right: 1.5rem;
+        }
+    }
+}
