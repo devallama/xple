@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "Actions/*": [
+                "./src/js/actions/*"
+            ],
+            "Components/*": [
+                "./src/js/components/*"
+            ],
+            "Pages/*": [
+                "./src/js/pages/*"
+            ],
+            "Routes/*": [
+                "./src/js/routes/*"
+            ],
+            "Util/*": [
+                "./src/js/actions/*"
+            ]
+        }
+    }
+}
