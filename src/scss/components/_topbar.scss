@@ -1,0 +1,17 @@
+.topbar {
+    height: 3.75rem;
+    background-color: #3F4A59;
+    position: relative;
+
+    @include breakpoint(medium) {
+        display: none;
+    }
+}
+
+.topbar__logo {
+    position: absolute;
+    height: 2.625rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
