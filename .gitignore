@@ -3,3 +3,8 @@ package-lock.json
 **/*.confid.*
 firebase.json
 .firebase
+
+# Compiled files - best to remove to avoid git merge conflicts
+
+public/assets/css/style.css
+public/assets/js/app.js
