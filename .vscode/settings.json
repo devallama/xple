@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        ".stylelintrc": "json"
+    },
+    "jest.pathToJest": "npm run test --"
+}
