@@ -1,0 +1,12 @@
+@mixin icon($icon, $variant: null) {
+    $base-icon-path: '/assets/icons';
+    
+    @if ($variant) {
+        $variant: '-#{$variant}';
+    } @else {
+        $variant: '';
+    }
+
+    background-image: url(#{$base-icon-path}/#{$icon}#{$variant}.svg);
+    background-repeat: no-repeat;
+}
