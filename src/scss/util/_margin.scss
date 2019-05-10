@@ -1,0 +1,55 @@
+$base-margin-gap: 0.75rem;
+$margin-variants: 8;
+
+$margin-directions: (
+    t: 'top',
+    r: 'right',
+    b: 'bottom',
+    l: 'left',
+    x: ('right', 'left'),
+    y: ('top', 'bottom')
+);
+
+@for $i from 1 through $margin-variants {
+    $margin: $i * $base-margin-gap;
+
+    .m-#{$i} {
+        margin: $margin;
+    }
+
+    @each $directionKey, $directionValue in $margin-directions {
+        @if type-of($directionValue) == 'string' {
+            .m-#{$directionKey}-#{$i} {
+                margin-#{$directionValue}: $margin;
+            }
+        } @else if type-of($directionValue) == "list" {
+            .m-#{$directionKey}-#{$i} {
+                @each $subDirection in $directionValue {
+                    margin-#{$subDirection}: $margin;
+                }
+            }
+        }
+    }
+
+    @each $breakpoint in $breakpoint-classes {
+        @include breakpoint($breakpoint) {
+            .m-#{$breakpoint}-#{$i} {
+                margin: $margin;
+            }
+    
+            @each $directionKey, $directionValue in $margin-directions {
+                @if type-of($directionValue) == 'string' {
+                    .m-#{$breakpoint}-#{$directionKey}-#{$i} {
+                        margin-#{$directionValue}: $margin;
+                    }
+                } @else if type-of($directionValue) == "list" {
+                    .m-#{$breakpoint}-#{$directionKey}-#{$i} {
+                        @each $subDirection in $directionValue {
+                            margin-#{$subDirection}: $margin;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
