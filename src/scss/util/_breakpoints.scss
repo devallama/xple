@@ -1,0 +1,89 @@
+/* Defined breakpoints */
+$breakpoints: (
+    small: 0rem,
+    small-mid: 30rem /* 480px */,
+    medium: 40rem /* 640px */,
+    medium-mid: 45rem /* 720px */,
+    large: 64rem /* 1024px */,
+    xlarge: 75rem /* 1200px */,
+    xxlarge: 90rem /* 1440px */,
+    xxxlarge: 120rem /* 1920px */
+);
+
+/* Breakpoints to use for element classes */
+$breakpoint-classes: (small, medium, large, xxlarge) !default;
+
+$breakpoint-modifiers: (
+    down: "max-width",
+    up: "min-width"
+) !default;
+
+@function breakpoint($val) {
+    $str: "";
+
+    @if (length($val) == 1) {
+        @if map-has-key($breakpoints, $val) {
+            $str: unquote("min-width: #{map-get($breakpoints, $val)}");
+        } @else {
+            @warn "Breakpoint value: #{$val} doesn't exist";
+        }
+    }
+
+    @else if (length($val) == 2 or length($val) == 3) {
+        $valBreakpoint: nth($val, 1);
+        $valModifier: nth($val, 2);
+
+        $modifier: "";
+        $breakpoint: "";
+
+        @if (map-has-key($breakpoint-modifiers, $valModifier)) {
+            $modifier: map-get($breakpoint-modifiers, $valModifier);
+        } @else {
+            @warn "Breakpoint modifier #{$valModifier} doesn't exist";
+            @return null;
+        }
+
+        @if (map-has-key($breakpoints, $valBreakpoint)) {
+            @if ($valModifier == down and length($val) == 3 and nth($val, 3) == "included") {
+                $nextBreakpoint: map-get-next($breakpoints, $valBreakpoint);
+
+                @if ($nextBreakpoint) {
+                    $breakpoint: $nextBreakpoint;
+                } @else {
+                    $breakpoint: map-get($breakpoints, $valBreakpoint);
+                }
+            } @else {
+                $breakpoint: map-get($breakpoints, $valBreakpoint) - 0.1rem;
+            }
+        } @else {
+            @warn "Breakpoint value: #{$valBreakpoint} doesn't exist";
+            @return null;
+        }
+
+        $str: unquote("#{$modifier}: #{$breakpoint}");
+    } @else {
+        @if (length($val) == 0) {
+            @warn "No breakpoint value provided.";
+        } @else {
+            @warn "Expects only two breakpoint argumenets at most.";
+        }
+    }
+
+    @return $str;
+}
+
+@mixin breakpoint($value: null) {
+    @if ($value) {
+        $str: breakpoint($value);
+
+        @if ($str == "" or null) {
+            @content;
+        } @else {
+            @media screen and (#{$str}) {
+                @content;
+            }
+        }
+    } @else {
+        @warn "No value passed to breakpoint.";
+    }
+}
