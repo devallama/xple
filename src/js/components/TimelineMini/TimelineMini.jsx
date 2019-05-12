@@ -29,20 +29,6 @@ class TimelineMini extends React.Component {
             )
         }
 
-        const milestones2 = this.props.milestones.map(milestone => {
-            const milestoneDate = dayjs(milestone.date);
-            const positionX = (milestoneDate.diff(startDate, 'day') / dayDifference) * 100;
-
-            return (
-                <button key={milestone.id}
-                    className={`timeline-mini__milestone timeline-mini__milestone--${milestone.type}`}
-                    style={{ left: `${positionX}%` }}
-                    aria-label="Milestone details"
-                >
-                </button>
-            )
-        });
-
         const milestones = this.props.milestones.map(milestone =>
             <Milestone key={milestone.id} startDate={startDate} dayDifference={dayDifference} milestone={milestone} />
         );
