@@ -16,6 +16,7 @@ import PageProjectHome from 'Pages/ProjectHome';
 import PageProjectReferences from 'Pages/ProjectReferences';
 import PageProjectMilestones from 'Pages/ProjectMilestones';
 import PageProjectTimeline from 'Pages/ProjectTimeline';
+import PageProjectLearningApps from 'Pages/ProjectLearningApps';
 
 class Router extends React.Component {
     render() {
@@ -58,10 +59,10 @@ class Router extends React.Component {
                         title="Project home"
                     />
                     <ProtectedRoute
-                        path="/project/:projectId/learning-tools"
-                        component={PageProjectHome}
+                        path="/project/:projectId/learning-apps/:learningApp?"
+                        component={PageProjectLearningApps}
                         pageTemplate={TemplateMain}
-                        title="Learning tools"
+                        title="Learning apps"
                     />
                     <ProtectedRoute
                         path="/project/:projectId/references"
