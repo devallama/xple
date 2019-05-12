@@ -4,6 +4,11 @@
     flex-direction: column;
 }
   
+.page-body {
+    flex: 1;
+    display: flex;
+}
+
 .content {
     flex: 1;
 }
