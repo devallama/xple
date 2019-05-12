@@ -11,6 +11,7 @@ import TemplateMain from 'Pages/templates/page-templates/Main';
 import PageLanding from 'Pages/Landing';
 import PageLogin from 'Pages/Login';
 import PageSignup from 'Pages/Signup';
+import PageLogout from 'Pages/Logout';
 import PageProjects from 'Pages/Projects';
 import PageProjectHome from 'Pages/ProjectHome';
 import PageProjectReferences from 'Pages/ProjectReferences';
@@ -47,6 +48,12 @@ class Router extends React.Component {
                         hideMobileBackground={true}
                     />
                     <ProtectedRoute
+                        path="/logout"
+                        component={PageLogout}
+                        title="Logout"
+                        redirect="/"
+                    />
+                    <ProtectedRoute
                         path="/projects"
                         component={PageProjects}
                         pageTemplate={TemplateMain}
@@ -76,49 +83,12 @@ class Router extends React.Component {
                         pageTemplate={TemplateMain}
                         title="Timeline"
                     />
-                    {/* <ProtectedRoute
-                        path="/project/:projectId/resources"
-                        component={PageProjectHome}
-                        pageTemplate={TemplateMain}
-                        title="Resources"
-                    /> */}
                     <ProtectedRoute
                         path="/project/:projectId/milestones"
                         component={PageProjectMilestones}
                         pageTemplate={TemplateMain}
                         title="Goals &amp; Milestones"
                     />
-                    {/* <NouserRoute
-                        path="/login"
-                        component={PageLogin}
-                        title="Login"
-                        redirect="/dashboard"
-                    />
-                    <NouserRoute
-                        path="/login-anon"
-                        component={PageLoginAnon}
-                        title="Login Anonymously"
-                        redirect="/dashboard"
-                    />
-                    
-                    <ProtectedRoute
-                        path="/logout"
-                        component={PageLogout}
-                        title="Logout from Plantinerary"
-                        redirect="/"
-                    />
-                    <ProtectedRoute
-                        path="/dashboard"
-                        component={PageDashboard}
-                        title="Trips Dashboard"
-                        redirect="/"
-                    />
-                    <ProtectedRoute
-                        path="/planner"
-                        component={PagePlanner}
-                        title="Trip Planner"
-                        redirect="/"
-                    /> */}
                 </Switch>
             </BrowserRouter>
         )
