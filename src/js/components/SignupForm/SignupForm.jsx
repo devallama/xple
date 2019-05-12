@@ -38,7 +38,7 @@ class SignupForm extends React.Component {
                     match: (field, fields) => field.value == fields.password.value
                 }
             },
-        }
+        };
     };
 
     render() {
