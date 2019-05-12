@@ -51,9 +51,9 @@ class Sidebar extends React.Component {
                                 </Link>
                             </li>
                             <li className="sidebar__link-item">
-                                <Link to={`/project/${this.props.projectId}/learning-tools`} className="link link--white">
-                                    <img className="sidebar__link-icon" src="/assets/icons/graduation-cap-sidebar.svg" alt="Learning tools" />
-                                    <span className="sidebar__link-label">Learning tools</span>
+                                <Link to={`/project/${this.props.projectId}/learning-apps`} className="link link--white">
+                                    <img className="sidebar__link-icon" src="/assets/icons/graduation-cap-sidebar.svg" alt="Learning apps" />
+                                    <span className="sidebar__link-label">Learning apps</span>
                                 </Link>
                             </li>
                             <li className="sidebar__link-item">
