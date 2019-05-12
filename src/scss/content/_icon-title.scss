@@ -31,3 +31,7 @@
 .icon-title--timeline:before {
     @include icon('calendar-black');
 }
+
+.icon-title--learning-apps:before {
+    @include icon('graduation-cap');
+}
