@@ -1,0 +1,147 @@
+.project-cards {
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: space-between;
+}
+
+.project-card {
+    width: calc((100% - 2rem) / 3);
+    background-color: #EAEEF6;
+    border-radius: 0.375rem;
+    position: relative;
+    margin-right: 1rem;
+    box-sizing: border-box;
+    padding-bottom: 1.5rem;
+
+    &:before {
+        content: '';
+        position: absolute;
+        height: 0.75rem;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: $primary;
+        z-index: 1;
+        border-radius: 0.375rem 0.375rem 0 0;
+    }
+
+    &:nth-of-type(3n + 2):before {
+        background-color: #C6D1FF;
+    }
+
+    &:nth-of-type(3n + 3) {
+        margin-right: 0;
+
+        &:before {
+            background-color: #DBA4AD;
+        }
+    }
+
+    > div {
+        padding: 1.5rem;
+    }
+}
+
+.project-card__top {
+    .column {
+        padding: 0;
+    }
+}
+
+.project-card__title {
+    margin: 0;
+    float: left;
+}
+
+.project-card__sub-title {
+    margin: 0;
+}
+
+.project-card__group {
+    margin: 0.375rem 0 1.25rem;
+    clear: both;
+}
+
+.project-card__desc {
+    margin: 0;
+
+    .project-card__desc + & {
+        margin-top: 1rem;
+    }
+}
+
+.project-card__menu-container {
+    float: right;
+}
+
+.project-card__menu-toggle {
+    background-color: transparent;
+    border: none;
+    width: 2.1875rem;
+    height: 2.25rem;
+    @include icon('dot-menu');
+    background-size: 100% 100%;
+    background-position: top 50% right 0;
+    outline: none;
+    cursor: pointer;
+}
+
+.project-card__menu {
+    text-align: center;
+}
+
+.project-card__menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.project-card__menu-item {
+    &:not(:first-of-type) {
+        margin-top: 0.5rem;
+    }
+}
+
+.project-card__milestones {
+    margin-top: 1.5rem;
+}
+
+.project-card__milestones-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.25rem 0 0;
+}
+
+.project-card__milestone-item {
+    background-color: $white;
+    padding: 0.5rem 1rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+
+    &:before {
+        content: '';
+        display: inline-block;
+        position: relative;
+        width: 0.5rem;
+        height: 0.5rem;
+        background-color: $black;
+        transform: translateY(-0.125rem);
+    }
+}
+
+.project-card__milestone-title {
+    padding-left: 1rem;
+}
+
+.project-card__milestone-date {
+    float: right;
+}
+
+.project-card__link {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    font-size: 1.15rem;
+}
