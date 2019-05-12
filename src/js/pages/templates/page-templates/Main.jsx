@@ -16,6 +16,12 @@ class Main extends React.Component {
         }
     }
 
+    componentWillUpdate(nextProps) {
+        if (nextProps.computedMatch.params.projectId) {
+            this.props.locationSetProjectId(nextProps.computedMatch.params.projectId);
+        }
+    }
+
     render() {
         console.log(this.props);
         const PageComponent = this.props.component;
