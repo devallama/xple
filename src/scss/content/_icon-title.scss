@@ -23,3 +23,7 @@
 .icon-title--references:before {
     @include icon('book');
 }
+
+.icon-title--milestones:before {
+    @include icon('lightning');
+}
