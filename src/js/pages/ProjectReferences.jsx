@@ -8,7 +8,7 @@ class PageReferences extends React.Component {
             <div>
                 <div className="row">
                     <div className="column medium-6">
-                        <h1 className="icon-title icon-title--references">Refences</h1>
+                        <h1 className="icon-title icon-title--references">References</h1>
                     </div>
                 </div>
                 <div className="row column main-content">
