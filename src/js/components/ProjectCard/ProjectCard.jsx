@@ -172,7 +172,7 @@ class ProjectCard extends React.Component {
                         }
 
                         <div className="text-right">
-                            <a href="#" className="link link--cta link--black">View all milestones</a>
+                            <Link to={`/project/${project.id}/milestones`} className="link link--cta link--black">View milestones</Link>
                         </div>
                     </div>
                 </div>
