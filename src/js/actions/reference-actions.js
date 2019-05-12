@@ -3,13 +3,9 @@ import { REFERENCES_FETCH, REFERENCE_CREATE, REFERENCE_EDIT, REFERENCE_DELETE } 
 export const referencesFetch = (projectId) => (dispatch, getState) => {
     const db = getState().firebase.instance.firestore();
 
-    console.log("called");
-
     db.collection("references").where("projectId", "==", projectId).orderBy('author').orderBy('name')
         .onSnapshot((querySnapshot) => {
             const data = querySnapshot.docs.map(doc => { return { id: doc.id, ...doc.data() } });
-
-            console.log(data);
 
             dispatch({
                 type: REFERENCES_FETCH,
