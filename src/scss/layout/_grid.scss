@@ -44,6 +44,11 @@ $grid-settings: (
         }
     }
 
+    &.column .column,
+    &.columns .columns {
+        padding: 0;
+    }
+
     @for $index from 0 through $grid-columns {
         &.offset-#{$breakpoint}-#{$index},
         .offset-#{$breakpoint}-#{$index} {
