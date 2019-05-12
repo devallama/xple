@@ -98,8 +98,6 @@ class Form extends React.Component {
             }
         });
 
-        console.log(fields);
-
         this.setState({
             ...fields
         }, this.onSubmit(event));
@@ -144,13 +142,10 @@ class Form extends React.Component {
 
                     Object.entries(fields).forEach(([key, field]) => formValues[key] = field.value);
 
-                    console.log("here?");
-                    console.log(formValues);
-
                     if (this.props.submitMethod instanceof Promise) {
                         this.props.submitMethod(formValues)
                             .catch(err => {
-                                console.log(err);
+                                console.error(err);
                             })
                             .finally(() => {
                                 this.setState({
