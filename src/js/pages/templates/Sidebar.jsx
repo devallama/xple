@@ -31,7 +31,7 @@ class Sidebar extends React.Component {
                     <div className="sidebar__account-info">
                         <div className="sidebar__info-pre-name">Logged in as</div>
                         <div className="sidebar__info-name">Megan Goodman</div>
-                        <div><Link className="link link--cta link--purple" to="/account">Account</Link></div>
+                        {/* <div><Link className="link link--cta link--purple" to="/account">Account</Link></div> */}
                     </div>
                 </div>
                 <ul className="sidebar__links">
