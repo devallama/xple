@@ -10,10 +10,13 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.6",
+    "dayjs": "^1.8.14",
     "firebase": "^5.11.1",
     "normalize-scss": "^7.0.1",
+    "ordinal": "^1.0.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-frame-component": "^4.1.0",
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
