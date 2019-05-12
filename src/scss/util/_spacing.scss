@@ -1,0 +1,83 @@
+$base-spacing-gap: 0.75rem;
+$spacing-variants: 8;
+
+$spacing-directions: (
+    t: 'top',
+    r: 'right',
+    b: 'bottom',
+    l: 'left',
+    x: ('right', 'left'),
+    y: ('top', 'bottom')
+);
+
+@for $i from 1 through $spacing-variants {
+    $spacing: $i * $base-spacing-gap;
+
+    .m-#{$i} {
+        margin: $spacing !important;
+    }
+
+    .p-#{$i} {
+        padding: $spacing !important;
+    }
+
+    @each $directionKey, $directionValue in $spacing-directions {
+        @if type-of($directionValue) == 'string' {
+            .m-#{$directionKey}-#{$i} {
+                margin-#{$directionValue}: $spacing !important;
+            }
+
+            .p-#{$directionKey}-#{$i} {
+                padding-#{$directionValue}: $spacing !important;
+            }
+        } @else if type-of($directionValue) == "list" {
+            .m-#{$directionKey}-#{$i} {
+                @each $subDirection in $directionValue {
+                    margin-#{$subDirection}: $spacing !important;
+                }
+            }
+
+            .p-#{$directionKey}-#{$i} {
+                @each $subDirection in $directionValue {
+                    padding-#{$subDirection}: $spacing !important;
+                }
+            }
+        }
+    }
+
+    @each $breakpoint in $breakpoint-classes {
+        @include breakpoint($breakpoint) {
+            .m-#{$breakpoint}-#{$i} {
+                margin: $spacing !important;
+            }
+
+            .p-#{$breakpoint}-#{$i} {
+                padding: $spacing !important;
+            }
+    
+            @each $directionKey, $directionValue in $spacing-directions {
+                @if type-of($directionValue) == 'string' {
+                    .m-#{$breakpoint}-#{$directionKey}-#{$i} {
+                        margin-#{$directionValue}: $spacing !important;
+                    }
+
+                    .p-#{$breakpoint}-#{$directionKey}-#{$i} {
+                        padding-#{$directionValue}: $spacing !important;
+                    }
+                } @else if type-of($directionValue) == "list" {
+                    .m-#{$breakpoint}-#{$directionKey}-#{$i} {
+                        @each $subDirection in $directionValue {
+                            margin-#{$subDirection}: $spacing !important;
+                        }
+                    }
+
+                    .p-#{$breakpoint}-#{$directionKey}-#{$i} {
+                        @each $subDirection in $directionValue {
+                            padding-#{$subDirection}: $spacing !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
