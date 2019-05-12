@@ -31,7 +31,9 @@ let CONFIG = {
         alias: {
             Actions: path.resolve(__dirname, 'src/js/actions'),
             Components: path.resolve(__dirname, 'src/js/components'),
+            LearningApps: path.resolve(__dirname, 'learning-apps'),
             Pages: path.resolve(__dirname, 'src/js/pages'),
+            Public: path.resolve(__dirname, 'public'),
             Routes: path.resolve(__dirname, 'src/js/routes'),
             Util: path.resolve(__dirname, 'src/js/util')
         }
