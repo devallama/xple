@@ -6,11 +6,14 @@ import ProtectedRoute from 'Routes/ProtectedRoute';
 import NouserRoute from 'Routes/NouserRoute';
 
 import TemplateLanding from 'Pages/templates/page-templates/Landing';
+import TemplateMain from 'Pages/templates/page-templates/Main';
 
 import PageLanding from 'Pages/Landing';
 import PageLogin from 'Pages/Login';
 import PageSignup from 'Pages/Signup';
 import PageProjects from 'Pages/Projects';
+import PageProjectHome from 'Pages/ProjectHome';
+import PageProjectReferences from 'Pages/ProjectReferences';
 
 class Router extends React.Component {
     render() {
@@ -43,7 +46,44 @@ class Router extends React.Component {
                     <ProtectedRoute
                         path="/projects"
                         component={PageProjects}
+                        pageTemplate={TemplateMain}
                         title="Projects"
+                    />
+                    <ProtectedRoute
+                        path="/project/:projectId/home"
+                        component={PageProjectHome}
+                        pageTemplate={TemplateMain}
+                        title="Project home"
+                    />
+                    <ProtectedRoute
+                        path="/project/:projectId/learning-tools"
+                        component={PageProjectHome}
+                        pageTemplate={TemplateMain}
+                        title="Learning tools"
+                    />
+                    <ProtectedRoute
+                        path="/project/:projectId/references"
+                        component={PageProjectReferences}
+                        pageTemplate={TemplateMain}
+                        title="References"
+                    />
+                    <ProtectedRoute
+                        path="/project/:projectId/timeline"
+                        component={PageProjectHome}
+                        pageTemplate={TemplateMain}
+                        title="Timeline"
+                    />
+                    <ProtectedRoute
+                        path="/project/:projectId/resources"
+                        component={PageProjectHome}
+                        pageTemplate={TemplateMain}
+                        title="Resources"
+                    />
+                    <ProtectedRoute
+                        path="/project/:projectId/milestones"
+                        component={PageProjectHome}
+                        pageTemplate={TemplateMain}
+                        title="Goals &amp; Milestones"
                     />
                     {/* <NouserRoute
                         path="/login"
