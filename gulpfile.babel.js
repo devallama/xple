@@ -33,6 +33,15 @@ function compileCSS() {
         .pipe(server.stream());
 }
 
+function compileLearningAppsCSS() {
+    return gulp.src('./learning-apps/**/*.scss')
+        .pipe(sass()
+            .on('error', sass.logError)
+        )
+        .pipe(gulp.dest('./public/assets/css/learning-apps'))
+        .pipe(server.stream());
+}
+
 function browserSyncServe() {
     return server.init({
         server: {
@@ -53,7 +62,7 @@ function watchFiles() {
     gulp.watch('./public/**/*.html', reload)
 }
 
-const build = parallel(compileCSS, compileJavaScript);
+const build = parallel(compileCSS, compileLearningAppsCSS, compileJavaScript);
 const serve = series(build, parallel(watchFiles, browserSyncServe));
 
 gulp.task('compile-css', compileCSS);
