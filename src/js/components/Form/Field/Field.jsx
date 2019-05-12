@@ -6,6 +6,7 @@ import cn from 'classnames';
 import Input from './Input/Input';
 import Label from './Label/Label';
 import Error from './Error/Error';
+import Textarea from './Textarea/Textarea';
 
 class Field extends React.Component {
     onChange = event => {
@@ -36,14 +37,15 @@ class Field extends React.Component {
 
     render() {
         const children = React.Children.map(this.props.children, child => {
-            if (child.type == Input) {
+            if (child.type == Input || child.type == Textarea) {
                 return [React.cloneElement(child, {
                     name: this.props.name,
+                    value: this.props.field.value,
                     onBlur: this.onBlur,
                     onChange: this.onChange,
                     onFocus: this.onFocus
                 }),
-                !this.props.hideError && (
+                (!this.props.hideError && this.props.field) && (
                     <Error isValid={this.props.field.valid} errorClassName={this.props.errorClassName} errorMessage={this.props.field.errorMessage} />
                 )];
             } else if (child.type == Label) {
