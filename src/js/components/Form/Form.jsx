@@ -5,6 +5,8 @@ import { deepMap } from 'Util/react-children';
 import Field from './Field/Field';
 import Label from './Field/Label/Label';
 import Input from './Field/Input/Input';
+import Textarea from './Field/Textarea/Textarea';
+import ResetButton from './Field/Buttons/ResetButton';
 
 class Form extends React.Component {
     constructor(props) {
@@ -22,9 +24,16 @@ class Form extends React.Component {
             fields: { ...props.fields }
         };
 
-        Object.keys(this.state.fields).forEach(key =>
-            this.state.fields[key] = { ...this.state.fields[key], ...defaultFieldState }
-        );
+        Object.keys(this.state.fields).forEach(key => {
+            let state = { ...defaultFieldState };
+            const field = this.state.fields[key];
+
+            if (field.hidden) {
+                state.touched = true;
+            }
+
+            this.state.fields[key] = { ...state, ...field }
+        });
     }
 
     updateField = (fieldName, field) => {
@@ -83,9 +92,13 @@ class Form extends React.Component {
 
     validateFieldsOnSubmit(fields, event) {
         Object.keys(fields).forEach(key => {
-            let input = event.target.querySelector(`[name=${key}]`);
-            fields[key] = this.validateField(fields[key], input);
+            if (!fields[key].hidden) {
+                let input = event.target.querySelector(`[name=${key}]`);
+                fields[key] = this.validateField(fields[key], input);
+            }
         });
+
+        console.log(fields);
 
         this.setState({
             ...fields
@@ -96,7 +109,7 @@ class Form extends React.Component {
         let fields = { ...this.state.fields };
 
         Object.keys(fields).forEach(key => {
-            const resetField = () => fields[key].value;
+            const resetField = () => fields[key].value = '';
 
             if (hardReset) {
                 resetField();
@@ -131,6 +144,9 @@ class Form extends React.Component {
 
                     Object.entries(fields).forEach(([key, field]) => formValues[key] = field.value);
 
+                    console.log("here?");
+                    console.log(formValues);
+
                     if (this.props.submitMethod instanceof Promise) {
                         this.props.submitMethod(formValues)
                             .catch(err => {
@@ -139,14 +155,14 @@ class Form extends React.Component {
                             .finally(() => {
                                 this.setState({
                                     isSubmitting: false
-                                })
+                                }, () => typeof this.props.afterSubmitMethod == 'function' && this.props.afterSubmitMethod())
                             });
                     } else {
                         this.props.submitMethod(formValues);
 
                         this.setState({
                             isSubmitting: false
-                        });
+                        }, () => typeof this.props.afterSubmitMethod == 'function' && this.props.afterSubmitMethod());
                     }
 
                     /* If form can be submitted multiple times, reset it */
@@ -166,6 +182,10 @@ class Form extends React.Component {
                     updateField: this.updateField,
                     validateField: this.validateField,
                     hideError: this.props.hideErrors
+                });
+            } else if (element.type == ResetButton) {
+                return React.cloneElement(element, {
+                    resetForm: this.resetForm
                 });
             } else {
                 return React.cloneElement(element);
@@ -188,5 +208,7 @@ export {
     Form,
     Field,
     Input,
-    Label
+    Textarea,
+    Label,
+    ResetButton
 };
