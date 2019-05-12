@@ -25,8 +25,6 @@ class Milestone extends React.Component {
         const positionY = (milestoneDate.diff(this.props.startDate, 'day') / this.props.dayDifference) * 100;
         const isOdd = this.props.index % 2 == 0;
 
-        console.log(isOdd);
-
         return (
             <div className={`timeline__milestone-container ${isOdd ? "timeline__milestone-container--odd" : ""}`}
                 style={{ top: `${positionY}%` }}
