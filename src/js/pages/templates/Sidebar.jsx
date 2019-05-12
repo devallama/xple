@@ -45,37 +45,31 @@ class Sidebar extends React.Component {
                     {(this.props.isProjectPage) && (
                         <ul className="sidebar__links">
                             <li className="sidebar__link-item">
-                                <Link to={`/project/${this.props.projectId}/home`} className="link link--white">
+                                <Link to={`/project/${this.props.projectId}/home`} className={cn("link link--white", { 'active': location.href.replace(/.*\//, '').includes('home') })}>
                                     <img className="sidebar__link-icon" src="/assets/icons/home-sidebar.svg" alt="Project home" />
                                     <span className="sidebar__link-label">Project home</span>
                                 </Link>
                             </li>
                             <li className="sidebar__link-item">
-                                <Link to={`/project/${this.props.projectId}/learning-apps`} className="link link--white">
+                                <Link to={`/project/${this.props.projectId}/learning-apps`} className={cn("link link--white", { 'active': location.href.replace(/.*\//, '').includes('learning-apps') })}>
                                     <img className="sidebar__link-icon" src="/assets/icons/graduation-cap-sidebar.svg" alt="Learning apps" />
                                     <span className="sidebar__link-label">Learning apps</span>
                                 </Link>
                             </li>
                             <li className="sidebar__link-item">
-                                <Link to={`/project/${this.props.projectId}/references`} className="link link--white">
+                                <Link to={`/project/${this.props.projectId}/references`} className={cn("link link--white", { 'active': location.href.replace(/.*\//, '').includes('references') })}>
                                     <img className="sidebar__link-icon" src="/assets/icons/book-sidebar.svg" alt="References" />
                                     <span className="sidebar__link-label">References</span>
                                 </Link>
                             </li>
                             <li className="sidebar__link-item">
-                                <Link to={`/project/${this.props.projectId}/timeline`} className="link link--white">
+                                <Link to={`/project/${this.props.projectId}/timeline`} className={cn("link link--white", { 'active': location.href.replace(/.*\//, '').includes('timeline') })}>
                                     <img className="sidebar__link-icon" src="/assets/icons/calendar-sidebar.svg" alt="Timeline" />
                                     <span className="sidebar__link-label">Timeline</span>
                                 </Link>
                             </li>
-                            {/* <li className="sidebar__link-item">
-                                <Link to={`/project/${this.props.projectId}/resources`} className="link link--white">
-                                    <img className="sidebar__link-icon" src="/assets/icons/cloud-sidebar.svg" alt="Resources" />
-                                    <span className="sidebar__link-label">Resources</span>
-                                </Link>
-                            </li> */}
                             <li className="sidebar__link-item">
-                                <Link to={`/project/${this.props.projectId}/milestones`} className="link link--white">
+                                <Link to={`/project/${this.props.projectId}/milestones`} className={cn("link link--white", { 'active': location.href.replace(/.*\//, '').includes('milestones') })}>
                                     <img className="sidebar__link-icon" src="/assets/icons/lightning-sidebar.svg" alt="Milestones" />
                                     <span className="sidebar__link-label">Milestones</span>
                                 </Link>
