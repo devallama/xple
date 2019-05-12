@@ -2,8 +2,46 @@
     color: $secondary;
     text-decoration: none;
     letter-spacing: 0.02rem;
+    background: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
 
     &:hover {
         text-decoration: underline;
+    }
+}
+
+.link--black {
+    color: $black;
+}
+
+.link--purple {
+    color: #C5A9F9;
+}
+
+.link--white {
+    color: $white;
+}
+
+.link--cta {
+    display: inline-block;
+    padding-right: 1.25rem;
+    position: relative;
+
+    &:after {
+        content: '';
+        @include icon('arrow', 'cta');
+        position: absolute;
+        top: 50%;
+        right: 0;
+        height: 1rem;
+        width: 0.75rem;
+        transform: translateY(-45%);
+    }
+
+    &.link--purple:after {
+        @include icon('arrow', 'cta-purple');
     }
 }
