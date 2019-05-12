@@ -6,11 +6,11 @@ class Landing extends React.Component {
         return (
             <div className="row column medium-5">
                 <h1>Extensi-ple</h1>
-                <p>
+                <p className="size-large">
                     xple is an extesible personal learning environment providing tools to assist in the learning and
                     management of your education journey.
                 </p>
-                <p>
+                <p className="size-large">
                     Create an account to get started or login.
                 </p>
                 <div className="m-t-8 landing-auth-btns">
