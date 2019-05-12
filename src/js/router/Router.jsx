@@ -14,6 +14,7 @@ import PageSignup from 'Pages/Signup';
 import PageProjects from 'Pages/Projects';
 import PageProjectHome from 'Pages/ProjectHome';
 import PageProjectReferences from 'Pages/ProjectReferences';
+import PageProjectMilestones from 'Pages/ProjectMilestones';
 
 class Router extends React.Component {
     render() {
@@ -73,15 +74,15 @@ class Router extends React.Component {
                         pageTemplate={TemplateMain}
                         title="Timeline"
                     />
-                    <ProtectedRoute
+                    {/* <ProtectedRoute
                         path="/project/:projectId/resources"
                         component={PageProjectHome}
                         pageTemplate={TemplateMain}
                         title="Resources"
-                    />
+                    /> */}
                     <ProtectedRoute
                         path="/project/:projectId/milestones"
-                        component={PageProjectHome}
+                        component={PageProjectMilestones}
                         pageTemplate={TemplateMain}
                         title="Goals &amp; Milestones"
                     />
