@@ -2,6 +2,10 @@
     position: relative;
     overflow: hidden;
 
+    > .row {
+        width: 100%;
+    }
+
     .row, .column {
         overflow: visible;
     }
