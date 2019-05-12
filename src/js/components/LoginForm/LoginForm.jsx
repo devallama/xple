@@ -38,7 +38,7 @@ class LoginForm extends React.Component {
                     <Label>Password</Label>
                     <Input type="password" required />
                 </Field>
-                <button type="submit" className="btn btn--secondary btn--fixed form__submit">LOGIN</button>
+                <button type="submit" className="btn btn--secondary btn--fixed form__submit m-t-5">LOGIN</button>
             </Form>
         );
     }

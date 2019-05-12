@@ -2,12 +2,17 @@
     position: relative;
     overflow: hidden;
 
+    > .row {
+        width: 100%;
+    }
+
     .row, .column {
         overflow: visible;
     }
 
     @include breakpoint(medium) {
         height: auto;
+        border-left: 6px solid #3F4A59;
     }
 
     &:before {
@@ -79,7 +84,7 @@
     }
 }
 
-.landing-main {
+.landing-content {
     margin-top: 1.625rem;
     position: relative;
     z-index: 2;

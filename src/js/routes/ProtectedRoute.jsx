@@ -16,11 +16,11 @@ class ProtectedRoute extends Route {
     render() {
         const { props } = this;
 
-        if (props.user.isLoggedIn == true) {
+        if (props.isLoggedIn == true) {
             return (
-                <BaseRoute {...props} component={props.component} title={props.title} user={props.user} />
+                <BaseRoute {...props} component={props.component} title={props.title} userIsLoggedIn={props.isLoggedIn} />
             );
-        } else if (props.user.isLoggedIn == false) {
+        } else if (props.isLoggedIn == false) {
             return (
                 <Redirect to={this.props.redirect || "/"} />
             );
@@ -32,12 +32,12 @@ class ProtectedRoute extends Route {
 
 ProtectedRoute.propTypes = {
     userIsLoggedIn: PropTypes.func.isRequired,
-    user: PropTypes.object.isRequired
+    isLoggedIn: PropTypes.bool
 }
 
 
 const mapStateToProps = state => ({
-    user: state.user
+    isLoggedIn: state.user.isLoggedIn
 });
 
 

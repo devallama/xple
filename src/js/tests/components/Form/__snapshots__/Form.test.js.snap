@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`form renders should render form element 1`] = `
+<form
+  onSubmit={[Function]}
+/>
+`;
+
+exports[`renders children should render children 1`] = `
+<form>
+  <h1>
+    Form
+  </h1>
+  <div
+    class="form__field"
+  />
+</form>
+`;

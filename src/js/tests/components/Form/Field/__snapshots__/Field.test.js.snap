@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`field renders should render the element with custom class name 1`] = `
+<div
+  className="form__field custom-field-classname"
+/>
+`;
+
+exports[`field renders should render the form field container element 1`] = `
+<div
+  className="form__field"
+/>
+`;

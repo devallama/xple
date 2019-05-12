@@ -6,5 +6,5 @@ firebase.json
 
 # Compiled files - best to remove to avoid git merge conflicts
 
-public/assets/css/style.css
+public/assets/css/**/*.css
 public/assets/js/app.js

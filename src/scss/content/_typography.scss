@@ -1,5 +1,11 @@
-body {
+body, button, input {
     font-family: 'open-sans', 'calibri', sans-serif;
+    line-height: 1.2;
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {
@@ -16,7 +22,30 @@ h1 {
     }
 }
 
+h2 {
+    font-size: 1.625rem;
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+h3 {
+    font-size: 1.125rem;
+    line-height: 1.33;
+    font-weight: 400;
+}
+
 p {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.7;
+
+    // @include breakpoint(medium) {
+    //     font-size: 1.5rem;
+    //     font-weight: 300;
+    // }
+}
+
+p.size-large {
     font-size: 1.125rem;
     font-weight: 300;
     line-height: 1.75;
@@ -26,4 +55,16 @@ p {
         font-size: 1.5rem;
         font-weight: 300;
     }
+}
+
+
+/* Text colors */
+.color--warn {
+    color: $warn;
+}
+
+/* Text weights */
+
+.weight--light {
+    font-weight: 300;
 }

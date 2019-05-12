@@ -1,0 +1,40 @@
+.card__grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card__item {
+    background-color: #EAEEF6;
+    width: calc((100% / 3) - 2rem);
+    text-align: center;
+    transition: all 0.5s ease;
+    margin: 1rem;
+
+    &:hover {
+        background-color: lighten(#EAEEF6, 2%);
+    }
+}
+
+.card__link {
+    display: block;
+    padding: 2rem;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.card__title {
+    margin: 0;
+    display: inline-block;
+
+    &.icon-title {
+        padding-right: 1rem;
+    }
+}
+
+.card__icon {
+    height: 2rem;
+    width: auto;
+    margin-top: 0.5rem;
+}

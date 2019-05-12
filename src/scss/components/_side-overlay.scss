@@ -1,0 +1,17 @@
+.side-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    padding: 4rem 1.875rem 4rem 7.625rem;
+    background-color: $white;
+    z-index: 10;
+    width: 25rem;
+    overflow: auto;
+}
+
+.side-overlay--right {
+    right: 0;
+    left: auto;
+    padding: 4rem 7.625rem 4rem 1.875rem;
+}

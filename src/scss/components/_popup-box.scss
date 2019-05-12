@@ -1,0 +1,45 @@
+.popup-box {
+    position: fixed;
+    z-index: 11;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 10rem;
+    background-color: #F5F8FD;
+    overflow: auto;
+    box-shadow: 0 3px 6px rgba($black, 0.15);
+    padding: 1rem;
+}
+
+.popup-box--origin {
+    position: absolute;
+    top: 0;
+    left: auto;
+    right: 0;
+    transform: none;
+
+    &.popup-box--fixed {
+        position: fixed;
+        top: auto;
+        bottom: auto;
+        left: auto;
+        right: auto;
+    }
+}
+
+.popup-box__container {
+    position: relative;
+}
+
+.popup-box__close {
+    background: none;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 1rem;
+    right: 0.5rem;
+    @include icon('close');
+    outline: none;
+    border: none;
+    cursor: pointer;
+}

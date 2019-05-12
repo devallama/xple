@@ -6,12 +6,20 @@ import sass from 'gulp-sass';
 import browserSync from 'browser-sync';
 import rename from 'gulp-rename';
 import historyApiFallback from 'connect-history-api-fallback';
+import uglify from 'gulp-uglify';
 
 const server = browserSync.create();
 
 function compileJavaScript() {
     return gulp.src('./src/js/index.js')
         .pipe(webpackStream(webpackConfig, webpack))
+        .pipe(gulp.dest('./'));
+}
+
+function compileMinJavaScript() {
+    return gulp.src('./src/js/index.js')
+        .pipe(webpackStream(webpackConfig, webpack))
+        .pipe(uglify())
         .pipe(gulp.dest('./'));
 }
 
@@ -22,6 +30,15 @@ function compileCSS() {
         )
         .pipe(rename('style.css'))
         .pipe(gulp.dest('./public/assets/css'))
+        .pipe(server.stream());
+}
+
+function compileLearningAppsCSS() {
+    return gulp.src('./learning-apps/**/*.scss')
+        .pipe(sass()
+            .on('error', sass.logError)
+        )
+        .pipe(gulp.dest('./public/assets/css/learning-apps'))
         .pipe(server.stream());
 }
 
@@ -45,10 +62,11 @@ function watchFiles() {
     gulp.watch('./public/**/*.html', reload)
 }
 
-const build = parallel(compileCSS, compileJavaScript);
+const build = parallel(compileCSS, compileLearningAppsCSS, compileJavaScript);
 const serve = series(build, parallel(watchFiles, browserSyncServe));
 
 gulp.task('compile-css', compileCSS);
 gulp.task('compile-js', compileJavaScript);
 gulp.task('build', build);
 gulp.task('default', serve);
+gulp.task('compile-js-prod', compileMinJavaScript);
