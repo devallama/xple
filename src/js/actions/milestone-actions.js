@@ -31,8 +31,6 @@ export const milestoneCreate = (milestoneData) => (dispatch, getState) => {
     const db = getState().firebase.instance.firestore();
     const uid = getState().user.user.uid;
 
-    console.log(milestoneData);
-
     db.collection("milestones").add({ ...milestoneData, uid: uid })
         .then(docRef => {
             dispatch({
