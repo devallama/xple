@@ -27,3 +27,7 @@
 .icon-title--milestones:before {
     @include icon('lightning');
 }
+
+.icon-title--timeline:before {
+    @include icon('calendar-black');
+}
