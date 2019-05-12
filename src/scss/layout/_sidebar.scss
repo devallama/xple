@@ -3,11 +3,12 @@
     background-color: #3F4A59;
     height: 100vh;
     overflow: hidden;
-    position: relative;
+    position: sticky;
     display: flex;
     flex-direction: column;
     align-items: center;
     transition: all ease 0.25s;
+    top: 0;
 
     * {
         transition: all 0.25s ease;
