@@ -19,8 +19,6 @@ class Timeline extends React.Component {
     }
 
     render() {
-        console.log(this.props.milestones);
-
         const { project } = this.props;
 
         const startDate = dayjs(project.startDate);
@@ -28,8 +26,6 @@ class Timeline extends React.Component {
 
         const monthDifference = endDate.diff(startDate, 'month');
         const dayDifference = endDate.diff(startDate, 'day');
-
-        console.log(monthDifference);
 
         let timelineSegments = [];
 
