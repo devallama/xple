@@ -37,3 +37,11 @@ export const REFERENCES_FETCH = 'REFERENCES_FETCH';
 export const REFERENCE_CREATE = 'REFERENCE_CREATE';
 export const REFERENCE_EDIT = 'REFERENCE_EDIT';
 export const REFERENCE_DELETE = 'REFERENCE_DELETE';
+
+/* Learning App Action types */
+
+export const LEARNING_APPS_FETCH = 'LEARNING_APPS_FETCH';
+
+/* App DB Action types */
+
+export const APP_DB_FETCH = 'APP_DB_FETCH';
