@@ -68,12 +68,12 @@ class Sidebar extends React.Component {
                                     <span className="sidebar__link-label">Timeline</span>
                                 </Link>
                             </li>
-                            <li className="sidebar__link-item">
+                            {/* <li className="sidebar__link-item">
                                 <Link to={`/project/${this.props.projectId}/resources`} className="link link--white">
                                     <img className="sidebar__link-icon" src="/assets/icons/cloud-sidebar.svg" alt="Resources" />
                                     <span className="sidebar__link-label">Resources</span>
                                 </Link>
-                            </li>
+                            </li> */}
                             <li className="sidebar__link-item">
                                 <Link to={`/project/${this.props.projectId}/milestones`} className="link link--white">
                                     <img className="sidebar__link-icon" src="/assets/icons/lightning-sidebar.svg" alt="Milestones" />
