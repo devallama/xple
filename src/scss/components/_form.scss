@@ -34,28 +34,60 @@
     }    
 }
 
+.form__sub-label {
+    @extend .form__label;
+    
+    font-size: 1.25rem;
+}
+
 .form__input {
     padding: 0.75rem 1rem;
     background-color: #F5F8FD;
     font-size: 1rem;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.02em;
     border: 0.0625rem solid #D6D6D6;
     border-radius: 0.1875rem;
     outline: none;
     width: 100%;
     box-sizing: border-box;
+}
 
-    
-    @include breakpoint(medium) {
-        font-size: 1.125rem;
+.form__input--date {
+    @include icon('calendar');
+    padding-right: 0;
+    background-position: right 1rem top 50%;
+
+    &::-webkit-inner-spin-button {
+        display: none;
+    }
+
+    &::-webkit-calendar-picker-indicator {
+        opacity: 0;
     }
 }
 
-.form__submit {
+.form__textarea {
+    padding: 0.75rem 1rem;
+    background-color: #F5F8FD;
+    width: 100%;
+    resize: vertical;
+    box-sizing: border-box;
+    outline: none;
+    border: 0.0625rem solid #D6D6D6;
+    height: 8rem;
+}
+
+.form__btn {
     margin-top: 2.75rem;
+    width: 10rem;
+    padding: 1.15rem 0;
     
     @include breakpoint(medium) {
         margin-top: 3.75rem;
+    }
+
+    .form__btn + & {
+        margin-left: 1.5rem;
     }
 }
 
