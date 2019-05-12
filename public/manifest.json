@@ -1,0 +1,15 @@
+{
+    "name": "Extensi-ple",
+    "short_name": "xple",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#FFFFFF",
+    "theme_color": "#68DDD5",
+    "icons": [
+        {
+            "src": "/assets/icons/manifest/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ]
+}

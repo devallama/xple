@@ -6,12 +6,20 @@ import sass from 'gulp-sass';
 import browserSync from 'browser-sync';
 import rename from 'gulp-rename';
 import historyApiFallback from 'connect-history-api-fallback';
+import uglify from 'gulp-uglify';
 
 const server = browserSync.create();
 
 function compileJavaScript() {
     return gulp.src('./src/js/index.js')
         .pipe(webpackStream(webpackConfig, webpack))
+        .pipe(gulp.dest('./'));
+}
+
+function compileMinJavaScript() {
+    return gulp.src('./src/js/index.js')
+        .pipe(webpackStream(webpackConfig, webpack))
+        .pipe(uglify())
         .pipe(gulp.dest('./'));
 }
 
@@ -52,3 +60,4 @@ gulp.task('compile-css', compileCSS);
 gulp.task('compile-js', compileJavaScript);
 gulp.task('build', build);
 gulp.task('default', serve);
+gulp.task('compile-js-prod', compileMinJavaScript);
