@@ -12,16 +12,16 @@ class Landing extends React.Component {
         return (
             <div className="page">
                 <Topbar />
-                <div className={cn("landing", "content", { "landing--no-bg-mobile": this.props.hideMobileBackground })}>
+                <div className={cn("landing", "page-body", { "landing--no-bg-mobile": this.props.hideMobileBackground })}>
                     <div className="row">
                         <div className="column">
                             <div>
                                 <Link to="/"><img src="/assets/icons/logo.png" alt="xple logo" className="landing-logo" /></Link>
                             </div>
 
-                            <main className="landing-main">
+                            <div className="landing-content">
                                 <PageComponent {...this.props} />
-                            </main>
+                            </div>
                         </div>
                     </div>
                 </div>
