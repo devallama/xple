@@ -61,7 +61,7 @@ class SignupForm extends React.Component {
                     <Label>Confirm Password</Label>
                     <Input type="password" required />
                 </Field>
-                <button type="submit" className="btn btn--primary btn--fixed form__submit">SIGNUP</button>
+                <button type="submit" className="btn btn--primary btn--fixed form__submit m-t-5">SIGNUP</button>
             </Form>
         );
     }
