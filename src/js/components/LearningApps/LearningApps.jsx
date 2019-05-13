@@ -22,8 +22,8 @@ class LearningApps extends React.Component {
             let cards = <p className="size-large">No learning apps available.</p>;
 
             if (this.props.apps.length > 0) {
-                cards = this.props.apps.map(app => (
-                    <div className="card__item">
+                cards = this.props.apps.map((app, index) => (
+                    <div className="card__item" key={index}>
                         <Link to={`learning-apps/${app.path}`} className="link link--black card__link" >
                             <h2 className="card__title">{app.name}</h2>
                             <p className="size-large">{app.description}</p>

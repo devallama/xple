@@ -12,11 +12,11 @@ class Landing extends React.Component {
         return (
             <div className="page">
                 <Topbar />
-                <div className={cn("landing", "page-body", { "landing--no-bg-mobile": this.props.hideMobileBackground })}>
+                <main className={cn("landing", "page-body", { "landing--no-bg-mobile": this.props.hideMobileBackground })}>
                     <div className="row">
                         <div className="column">
                             <div>
-                                <Link to="/"><img src="/assets/icons/logo.png" alt="xple logo" className="landing-logo" /></Link>
+                                <Link to="/" aria-label="Go to home"><img src="/assets/icons/logo.png" alt="xple logo" className="landing-logo" /></Link>
                             </div>
 
                             <div className="landing-content">
@@ -24,7 +24,7 @@ class Landing extends React.Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                </main>
                 <Footer />
             </div>
         );

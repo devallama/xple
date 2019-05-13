@@ -38,11 +38,6 @@ p {
     font-size: 1rem;
     font-weight: 300;
     line-height: 1.7;
-
-    // @include breakpoint(medium) {
-    //     font-size: 1.5rem;
-    //     font-weight: 300;
-    // }
 }
 
 p.size-large {
@@ -60,7 +55,7 @@ p.size-large {
 
 /* Text colors */
 .color--warn {
-    color: $warn;
+    color: $danger;
 }
 
 /* Text weights */
