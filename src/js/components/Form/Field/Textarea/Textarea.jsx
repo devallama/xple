@@ -10,7 +10,7 @@ class Textarea extends React.Component {
         } = this.props;
 
         return (
-            <textarea id={`textarea_${name}`} name={name} className={`form__textarea`} {...rest} />
+            <textarea id={`input_${name}`} name={name} className={`form__textarea`} {...rest} />
         );
     }
 }

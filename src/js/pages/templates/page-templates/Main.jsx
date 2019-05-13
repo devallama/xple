@@ -28,7 +28,7 @@ class Main extends React.Component {
         return (
             <div className="page">
                 <Topbar />
-                <div className="page-body">
+                <main className="page-body">
                     <Sidebar isProjectPage={this.props.computedMatch.path.split('/')[1].toLowerCase() == 'project'}
                         projectId={this.props.computedMatch.params.projectId}
                     />
@@ -39,7 +39,7 @@ class Main extends React.Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                </main>
             </div>
         );
     }
