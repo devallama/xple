@@ -152,9 +152,9 @@ class ViewPlay extends React.Component {
                     <Flashcard />
                 </CardContainer>
                 <ControlWrapper>
-                    <button type="button" className="btn btn--neutral" onClick={this.descFlash}>Previous</button>
-                    <button type="button" className="btn btn--primary" style={{ borderRadius: '0' }} onClick={this.randomFlash}>Random</button>
-                    <button type="button" className="btn btn--neutral" onClick={this.incFlash}>Next</button>
+                    <button type="button" className="btn btn--neutral btn--fixed m-x-1" onClick={this.descFlash}>Previous</button>
+                    <button type="button" className="btn btn--primary btn--fixed m-x-1" style={{ borderRadius: '0' }} onClick={this.randomFlash}>Random</button>
+                    <button type="button" className="btn btn--neutral btn--fixed m-x-1" onClick={this.incFlash}>Next</button>
                 </ControlWrapper>
             </Wrapper>
         );
