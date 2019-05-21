@@ -11,10 +11,17 @@ class Api extends React.Component {
     }
 
     render() {
+        console.log(this.props.user);
         if (Object.keys(this.props.db).length == 0) { return null; }
 
+        const { user } = this.props;
+
         const component = React.cloneElement(this.props.children, {
-            db: this.props.db
+            db: this.props.db,
+            user: {
+                name: user.displayName,
+                uid: user.uid
+            }
         });
 
         return component;
@@ -28,7 +35,8 @@ Api.propTypes = {
 
 const mapStateToProps = state => {
     return ({
-        db: state.appDB.db
+        db: state.appDB.db,
+        user: state.user.user
     });
 };
 

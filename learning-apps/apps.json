@@ -4,7 +4,6 @@
         "path": "flashcards",
         "appFile": "flashcards/app.jsx",
         "description": "Memorise words and phrases using flash cards!",
-        "useXpleStyling": true,
-        "stylesheet": "style"
+        "useXpleStyling": true
     }
 ]

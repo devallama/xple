@@ -57,7 +57,7 @@ function reload(done) {
 }
 
 function watchFiles() {
-    gulp.watch('./src/**/*.(js|jsx)', gulp.series(compileJavaScript, reload));
+    gulp.watch('./(src|learning-apps)/**/*.(js|jsx)', gulp.series(compileJavaScript, reload));
     gulp.watch('./src/**/*.(css|scss)', gulp.series(compileCSS));
     gulp.watch('./public/**/*.html', reload)
 }

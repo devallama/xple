@@ -1,6 +1,7 @@
 import React from 'react';
 
-import Frame from 'react-frame-component';
+import { StyleSheetManager } from "styled-components"
+import Frame, { FrameContextConsumer } from 'react-frame-component';
 
 import Api from '../Api/Api';
 
@@ -24,9 +25,17 @@ class App extends React.Component {
 
         return (
             <Frame title={app.name} head={stylesheets} className="app-frame">
-                <Api app={app.path}>
-                    <Component />
-                </Api>
+                <FrameContextConsumer>
+                    {frameContext => (
+                        <StyleSheetManager target={frameContext.document.head}>
+                            <React.Fragment>
+                                <Api app={app.path}>
+                                    <Component key={app.name} />
+                                </Api>
+                            </React.Fragment>
+                        </StyleSheetManager>
+                    )}
+                </FrameContextConsumer>
             </Frame>
         );
     }
