@@ -11,7 +11,6 @@ class Api extends React.Component {
     }
 
     render() {
-        console.log(this.props.user);
         if (Object.keys(this.props.db).length == 0) { return null; }
 
         const { user } = this.props;

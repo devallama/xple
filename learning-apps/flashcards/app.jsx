@@ -42,16 +42,14 @@ class FlashcardsApp extends React.Component {
 
         this.state = {
             currentView: 'home',
-            flashstacks: []
+            flashstacks: [],
+            selectedFlashstack: null
         }
 
         this.getUserFlashStacks();
-
-        // this.props.db;
     }
 
     getUserFlashStacks = () => {
-        console.log(this.props.db);
         this.props.db.collection("flashstacks").where("uid", "==", this.props.user.uid)
             .onSnapshot(querySnapshot => {
                 const data = querySnapshot.docs.map(doc => { return { id: doc.id, ...doc.data() } });
@@ -60,6 +58,18 @@ class FlashcardsApp extends React.Component {
                     flashstacks: data
                 })
             });
+    }
+
+    setCurrentFlashstack = id => {
+        const flashstack = this.state.flashstacks.find(f => f.id == id);
+
+        if (flashstack) {
+            this.setState({
+                selectedFlashstack: flashstack
+            });
+
+            this.changeView('play');
+        }
     }
 
     changeView = view => {
@@ -78,7 +88,7 @@ class FlashcardsApp extends React.Component {
                         <HomeLink className="link link--purple" onClick={() => this.changeView('home')}>home</HomeLink>
                     </Header>
                 </div>
-                <View {...this.props} changeView={this.changeView} />
+                <View {...this.props} changeView={this.changeView} flashstacks={this.state.flashstacks} setCurrentFlashstack={this.setCurrentFlashstack} selectedFlashstack={this.state.selectedFlashstack} />
             </Wrapper>
         );
     }
