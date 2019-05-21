@@ -14,13 +14,15 @@ class ViewCreate extends React.Component {
         };
     }
 
-    saveFlashStack = () => {
+    saveFlashStack = event => {
+        event.preventDefault();
+
         const data = {
             name: this.state.flashstackName,
             flashstack: this.state.flashstack,
             uid: this.props.user.uid
         }
-        this.props.db.collection("flashstacks").set(data)
+        this.props.db.collection("flashstacks").add(data)
             .then(() => {
                 console.log("success");
             })
