@@ -16,4 +16,21 @@ body {
             background-color: rgba($black, 0.7);
         }
     }
+
+    &.sidebar-visible {
+        overflow: hidden;
+
+        &:after {
+            z-index: 1;
+            @extend .overlay:after;
+        }
+
+        @include breakpoint(medium) {
+            overflow: visible;
+
+            &:after {
+                content: none;
+            }
+        }
+    }
 }

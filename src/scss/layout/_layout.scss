@@ -11,4 +11,9 @@
 
 .content {
     flex: 1;
+    max-width: 100%;
+
+    @include breakpoint(medium) {
+        flex: 1;
+    }
 }

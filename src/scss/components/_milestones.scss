@@ -1,7 +1,13 @@
 .milestones {
     background-color: #EAEEF6;
-    padding: 2rem;
     margin-bottom: 2rem;
+    padding: 2rem 0.25rem;
+    overflow: auto;
+
+    @include breakpoint(medium) {
+        padding: 2rem;
+        overflow: visible;
+    }
 }
 
 .milestones--task {
@@ -30,6 +36,7 @@
 }
 
 .milestones__table {
+    min-width: 30rem;
     width: 100%;
     border-collapse: collapse;
 }

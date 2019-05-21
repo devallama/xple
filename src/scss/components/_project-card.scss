@@ -1,17 +1,26 @@
 .project-cards {
     display: flex;
-    flex-wrap: wrap;
-    // justify-content: space-between;
+    flex-flow: column wrap;
+
+    @include breakpoint(medium) {
+        flex-direction: row;
+    }
 }
 
 .project-card {
-    width: calc((100% - 2rem) / 3);
     background-color: #EAEEF6;
     border-radius: 0.375rem;
     position: relative;
     margin-right: 1rem;
     box-sizing: border-box;
-    padding-bottom: 1.5rem;
+    padding-bottom: 4rem;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    @include breakpoint(medium) {
+        width: calc((100% - 2rem) / 3);
+        padding-bottom: 2rem;
+    }
 
     &:before {
         content: '';
@@ -58,8 +67,12 @@
 }
 
 .project-card__group {
-    margin: 0.375rem 0 1.25rem;
+    margin: 0.375rem 0 0;
     clear: both;
+
+    @include breakpoint(medium) {
+        margin: 0.375rem 0 1.5rem;
+    }
 }
 
 .project-card__desc {
@@ -103,7 +116,11 @@
 }
 
 .project-card__milestones {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
+
+    @include breakpoint(medium) {
+        margin-top: 1.5rem;
+    }
 }
 
 .project-card__milestones-list {

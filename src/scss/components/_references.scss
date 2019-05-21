@@ -1,10 +1,16 @@
 .references {
     background-color: #EAEEF6;
-    padding: 2rem;
+    overflow: auto;
+    padding: 2rem 0.25rem;
+
+    @include breakpoint(medium) {
+        padding: 2rem;
+    }
 }
 
 .references__table {
     width: 100%;
+    min-width: 40rem;
     border-collapse: collapse;
 }
 

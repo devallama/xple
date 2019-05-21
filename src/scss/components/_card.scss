@@ -1,14 +1,23 @@
 .card__grid {
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: column wrap;
+
+    @include breakpoint(medium) {
+        flex-direction: row;
+    }
 }
 
 .card__item {
     background-color: #EAEEF6;
-    width: calc((100% / 3) - 2rem);
     text-align: center;
     transition: all 0.5s ease;
-    margin: 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    @include breakpoint(medium) {
+        width: calc((100% / 3) - 2rem);
+        margin: 1rem;
+    }
 
     &:hover {
         background-color: lighten(#EAEEF6, 2%);

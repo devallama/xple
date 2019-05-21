@@ -71,9 +71,6 @@ class Timeline extends React.Component {
                         End date
                         <span className="timeline__date">{endDate.format('D MMM YYYY')}</span>
                     </div>
-                    <Link to={`/project/${this.props.projectId}/milestones`} className="btn btn--small btn--primary timeline__btn">
-                        View all milestones
-                    </Link>
                 </div>
             </div>
         );

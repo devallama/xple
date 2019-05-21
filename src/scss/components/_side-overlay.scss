@@ -3,15 +3,26 @@
     left: 0;
     top: 0;
     bottom: 0;
-    padding: 4rem 1.875rem 4rem 7.625rem;
+    padding: 2rem 1rem 4rem 1rem;
     background-color: $white;
     z-index: 10;
-    width: 25rem;
+    width: 85%;
     overflow: auto;
+    box-sizing: border-box;
+
+    @include breakpoint(medium) {
+        width: 25rem;   
+        padding: 4rem 1.875rem 4rem 5.625rem;
+        box-sizing: content-box;
+    }
 }
 
 .side-overlay--right {
     right: 0;
     left: auto;
-    padding: 4rem 7.625rem 4rem 1.875rem;
+    padding: 2rem 1rem 4rem 1rem !important;
+
+    @include breakpoint(medium) {
+        padding: 4rem 5.625rem 4rem 1.875rem !important;
+    }
 }

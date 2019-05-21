@@ -14,6 +14,10 @@ class Main extends React.Component {
         if (props.computedMatch.params.projectId) {
             this.props.locationSetProjectId(props.computedMatch.params.projectId);
         }
+
+        this.state = {
+            isSidebarCollapsed: true
+        };
     }
 
     componentWillUpdate(nextProps) {
@@ -22,21 +26,32 @@ class Main extends React.Component {
         }
     }
 
+    toggleSidebar = () => {
+        this.setState({
+            isSidebarCollapsed: !this.state.isSidebarCollapsed
+        }, () => {
+            if (this.state.isSidebarCollapsed) {
+                document.body.classList.remove('sidebar-visible');
+            } else {
+                document.body.classList.add('sidebar-visible');
+            }
+        });
+    }
+
     render() {
         const PageComponent = this.props.component;
 
         return (
             <div className="page">
-                <Topbar />
+                <Topbar isSidebarVisible={true} toggleSidebar={this.toggleSidebar} isSidebarCollapsed={this.state.isSidebarCollapsed} />
                 <main className="page-body">
                     <Sidebar isProjectPage={this.props.computedMatch.path.split('/')[1].toLowerCase() == 'project'}
-                        projectId={this.props.computedMatch.params.projectId}
+                        projectId={this.props.computedMatch.params.projectId} isCollapsed={this.state.isSidebarCollapsed}
+                        toggleSidebar={this.toggleSidebar}
                     />
                     <div className="content main">
-                        <div className="row">
-                            <div className="column">
-                                <PageComponent {...this.props} />
-                            </div>
+                        <div className="row column">
+                            <PageComponent {...this.props} />
                         </div>
                     </div>
                 </main>
