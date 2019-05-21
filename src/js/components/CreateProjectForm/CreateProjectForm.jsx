@@ -63,13 +63,13 @@ class CreateProjectForm extends React.Component {
                 </Field>
                 <div className="row column">
                     <label className="form__label">Timeline</label>
-                    <div className="column medium-6 p-r-1">
+                    <div className="column small-12 medium-6 p-medium-r-1">
                         <Field name="startDate">
                             <Label className="form__sub-label">Start date <span className="color--warn">*</span></Label>
                             <Input type="date" required />
                         </Field>
                     </div>
-                    <div className="column medium-6 p-l-1">
+                    <div className="column small-12 medium-6 p-medium-l-1">
                         <Field name="endDate">
                             <Label className="form__sub-label">End date <span className="color--warn">*</span></Label>
                             <Input type="date" required />
