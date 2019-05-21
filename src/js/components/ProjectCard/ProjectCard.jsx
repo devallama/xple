@@ -105,14 +105,14 @@ class ProjectCard extends React.Component {
                 <div className="project-card__main">
                     <div className="project-card__top">
                         <div className="row overflow--default">
-                            <div className="column medium-10">
+                            <div className="column small-10 medium-10">
                                 <Link to={`/project/${project.id}/home`} className="link link--black">
                                     <h2 className="project-card__title">
                                         {project.name}
                                     </h2>
                                 </Link>
                             </div>
-                            <div className="column medium-2 text-right">
+                            <div className="column small-2 medium-2 text-right">
                                 <button onClick={this.toggleMenu}
                                     className={cn("project-card__menu-toggle", { 'isOpen': this.state.isMenuVisible })}
                                     aria-label="Open project menu"
@@ -132,7 +132,7 @@ class ProjectCard extends React.Component {
                                     </div>
                                 )}
                                 {this.state.isConfirmDeleteVisible && (
-                                    <div className="popup-box p-4">
+                                    <div className="popup-box p-small-2 p-medium-4 text-center" style={{ minWidth: '15rem' }}>
                                         Are you sure you want to delete this project?
                                         <div className="text-center m-t-2">
                                             <button className="btn btn--neutral btn--small weight--light m-r-1"
