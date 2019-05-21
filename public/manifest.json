@@ -1,7 +1,7 @@
 {
     "name": "Extensi-ple",
     "short_name": "xple",
-    "start_url": "/index.html",
+    "start_url": "/",
     "display": "standalone",
     "background_color": "#FFFFFF",
     "theme_color": "#68DDD5",
