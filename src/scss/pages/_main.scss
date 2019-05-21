@@ -1,7 +1,15 @@
 .main {
-    padding-top: 4rem;
+    padding-top: 1.625rem;
+
+    @include breakpoint(medium) {
+        padding-top: 4rem;
+    }
 }
 
 .main-content {
-    margin-top: 2.375rem;
+    margin-top: 1.625rem;
+
+    @include breakpoint(medium) {
+        margin-top: 2.375rem;
+    }
 }

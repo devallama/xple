@@ -4,7 +4,7 @@ class Page extends React.Component {
     constructor(props) {
         super(props);
 
-        document.title = `${this.props.title} | Plan-tinerary`;
+        document.title = `${this.props.title} | XPLE`;
     }
 
     render() {

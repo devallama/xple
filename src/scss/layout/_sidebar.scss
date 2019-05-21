@@ -1,30 +1,49 @@
 .sidebar {
-    width: 16.25rem;
+    width: 80%;
     background-color: #3F4A59;
-    height: 100vh;
+    height: calc(100vh - 3.75rem);
     overflow: hidden;
-    position: sticky;
+    position: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
     transition: all ease 0.25s;
-    top: 0;
+    top: 3.75rem;
+    left: 0;
+    z-index: 5;
+
+    @include breakpoint('medium') {
+        position: sticky;
+        z-index: 1;
+        top: 0;
+        height: 100vh;
+        width: 16.25rem;
+    }
 
     * {
         transition: all 0.25s ease;
     }
 
     &.collapsed {
-        width: 4.625rem;
+        width: 0;
 
         * {
             transition: all 0.15s ease 0.1s;
+        }
+
+        @include breakpoint('medium') {
+            width: 4.625rem;
         }
     }
 }
 
 .sidebar__logo {
     padding: 0.5rem 0;
+    display: none;
+
+    @include breakpoint(medium) {
+        display: block;
+    }
 
     img {
         width: 5.875rem;
@@ -80,19 +99,19 @@
         border-radius: 50%;
         z-index: 0;
     }
-
-    @at-root .sidebar.collapsed & {
-
-    }
 }
 
 .sidebar__account-info {
-    padding-left: 0.75rem;
+    padding-left: 1.25rem;
     color: $white;
     font-weight: 300;
     opacity: 1;
     max-height: none;
     transition: opacity 0.1s ease 0.15s;
+
+    @include breakpoint(medium) {
+        padding-left: 1rem;
+    }
 
     @at-root .sidebar.collapsed & {
         opacity: 0;
@@ -215,6 +234,12 @@
     position: absolute;
     bottom: 0;
     width: 100%;
+
+    @include breakpoint(medium down) {
+        .link {
+            padding: 1rem 1.125rem;
+        }
+    }
 
     @at-root .sidebar.collapsed & {
         width: auto;

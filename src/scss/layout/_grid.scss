@@ -24,8 +24,6 @@ $grid-settings: (
 
 /* Generate the column styling */
 @mixin grid-create-columns-styling($gutter, $columnWidth, $breakpoint: 'column') {
-    &.column,
-    &.columns,
     .column,
     .columns {
         padding: 0 #{$gutter / 2};
@@ -92,18 +90,18 @@ $grid-settings: (
 
             $gutter: map-get($grid-map, gutter);
 
-            @if ($breakpoint==base) {
-                @include grid-create-columns-styling($gutter, $columnWidth);
-            }
-
-            @else {
-                @include grid-create-columns-styling($gutter, $columnWidth, $breakpoint);
-            }
+            @include grid-create-columns-styling($gutter, $columnWidth, $breakpoint);
         }
     }
 
     & .row {
         padding: 0;
+
+        @include breakpoint(medium down) {
+            margin-left: 0;
+            margin-right: 0;
+            max-width: 100%;
+        }
     }
 
     &.column,

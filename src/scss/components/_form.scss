@@ -12,6 +12,12 @@
 }
 
 .form__field {
+    margin-top: 1rem;
+
+    @include breakpoint(medium) {
+        margin-top: 0;
+    }
+
     &:not(:last-of-type) {
         margin-bottom: 2.25rem;
     }
@@ -84,10 +90,14 @@
     
     @include breakpoint(medium) {
         margin-top: 3.75rem;
+
+        .form__btn + & {
+            margin-left: 1.5rem;
+        }
     }
 
     .form__btn + & {
-        margin-left: 1.5rem;
+        margin-top: 1.5rem;
     }
 }
 
